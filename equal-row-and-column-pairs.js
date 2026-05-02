@@ -37,11 +37,11 @@ var equal = function (grid) {
 
   let count = 0;
   for (let j = 0; j < n; j++) {
-    let colKey = "";
+    const col = [];
     for (let i = 0; i < n; i++) {
-      colKey += grid[i][j] + ",";
+      col.push(grid[i][j]);
     }
-    count += rowCount.get(colKey) ?? 0;
+    count += rowCount.get(col.join(",")) ?? 0;
   }
 
   return count;
