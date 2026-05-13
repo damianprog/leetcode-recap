@@ -1,6 +1,6 @@
 var asteroidCollision = function (asteroids) {
   const stack = [];
-
+// stack pattern
   for (const asteroid of asteroids) {
     let alive = true;
 
