@@ -40,8 +40,25 @@ const reverse = function (s) {
 
   const sArray = s.split("");
 
+  reverseRange(sArray, 0, sArray.length - 1);
+
   let left = 0;
-  let right = sArray.length - 1;
+
+  for (let right = 0; right < sArray.length - 1; right++) {
+    if (sArray[right] === " ") {
+      if (left !== right) {
+        reverseRange(sArray, left, right - 1);
+      }
+
+      left = right + 1;
+    }
+  }
+
+  if (left < sArray.length) {
+    reverseRange(sArray, left, sArray.length - 1);
+  }
+
+  return sArray.join("");
 
   // =========================================================================
 };
