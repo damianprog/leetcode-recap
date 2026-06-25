@@ -40,11 +40,26 @@ const reverse = function (s) {
 
   const sArray = s.split("");
 
-  reverseRange(sArray, 0, sArray.length - 1);
+  let write = 0;
+
+  for (let read = 0; read < sArray.length; read++) {
+    const isNotSpace = sArray[read] !== " ";
+    const isSpaceButPrevWrittenNot =
+      sArray[read] === " " && write > 0 && sArray[write - 1] !== " ";
+
+    if (isNotSpace || isSpaceButPrevWrittenNot) {
+      sArray[write] = sArray[read];
+      write++;
+    }
+  }
+
+  const lastValidCharIndex = sArray[write - 1] === " " ? write - 2 : write - 1;
+
+  reverseRange(sArray, 0, lastValidCharIndex);
 
   let left = 0;
 
-  for (let right = 0; right < sArray.length - 1; right++) {
+  for (let right = 0; right <= lastValidCharIndex; right++) {
     if (sArray[right] === " ") {
       if (left !== right) {
         reverseRange(sArray, left, right - 1);
@@ -54,11 +69,11 @@ const reverse = function (s) {
     }
   }
 
-  if (left < sArray.length) {
-    reverseRange(sArray, left, sArray.length - 1);
+  if (left <= lastValidCharIndex) {
+    reverseRange(sArray, left, lastValidCharIndex);
   }
 
-  return sArray.join("");
+  return sArray.slice(0, lastValidCharIndex + 1).join("");
 
   // =========================================================================
 };
