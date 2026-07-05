@@ -26,9 +26,26 @@ const strStr = function (haystack, needle) {
   // Knuth-Morris-Pratt (KMP) Algorithm. Time: O(n + m), Memory: O(m)
 
   /*
-  Czyli moje pytanie jest jasne dlaczego przy tym ostatnim indeksie 
-  nie zrobiliśmy po prostu resetu len = 0 tylko len = lps[len - 1]? 
-  Dokładnie tego nie rozumiem.
+  Śledząc działanie buildLPS dla needle = c a c a a
+jasne jest dla mnie że lps[0] musi być 0 więc zajmujemy się od razu 
+komórką z indeksem 1. Jasne jest dla mnie sprawdzenie czy needle[1] === needle[0] 
+bo jeśli tak to len dla indeksu wynosił by 1 ale tak nie jest zatem wynosi 0. 
+Kolejny sprawdzany indeks to 2. Nie mamy zbudowanej dotychczas żadnej len więc 
+sprawdzamy czy needle[2] === needle[0] i jest traf inkrementujemy len i 
+wpisujemy go do lps[2] = 1. Następnie sprawdzamy czy kolejny znak w needle 
+czyli ten pod indeksem 3 jest równy temu pod indeksem 1 (bo len jest obecnie 1) 
+i owszem mamy kolejny traf więc znowu inkrementujemy len do 2 i 
+wpisujemy do lps[3] = 2. Następnie sprawdzamy już ostatni indeks 4 
+no i żeby len było nowu zwiększone to needle[4] musiało by być równe 
+needle[len czyli 2] ale nie jest i teraz sie dzieje coś czego 
+nie rozumiem dlaczego tak sie dzieje. Bo owszem kolejnego trafu 
+nie ma więc tracimy ciągłość ale to nie znaczy 
+że możemy tępo wstawić w lps[4] = 0. 
+Musimy zresetować len do 0 owszem ale tuż po tym sprawdzić czy przypadkiem 
+nie zaczyna się nowe samopodobieństwo i tak by było gdyby needle[4] === needle[0] 
+ale tak nie jest bo needle[4] = a, needle[0] = c. Czyli moje pytanie jest jasne 
+dlaczego przy tym ostatnim indeksie nie zrobiliśmy po prostu resetu len = 0 
+tylko len = lps[len - 1]? Dokładnie tego nie rozumiem.
 */
 
   function buildLPS(p) {
