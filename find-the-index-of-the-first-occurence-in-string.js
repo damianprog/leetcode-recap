@@ -25,6 +25,12 @@ const strStr = function (haystack, needle) {
   // ==================================================================================
   // Knuth-Morris-Pratt (KMP) Algorithm. Time: O(n + m), Memory: O(m)
 
+  /*
+  Czyli moje pytanie jest jasne dlaczego przy tym ostatnim indeksie 
+  nie zrobiliśmy po prostu resetu len = 0 tylko len = lps[len - 1]? 
+  Dokładnie tego nie rozumiem.
+*/
+
   function buildLPS(p) {
     const m = p.length;
     const lps = new Array(m).fill(0);
