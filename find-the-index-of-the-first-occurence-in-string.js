@@ -46,6 +46,8 @@ nie zaczyna się nowe samopodobieństwo i tak by było gdyby needle[4] === needl
 ale tak nie jest bo needle[4] = a, needle[0] = c. Czyli moje pytanie jest jasne 
 dlaczego przy tym ostatnim indeksie nie zrobiliśmy po prostu resetu len = 0 
 tylko len = lps[len - 1]? Dokładnie tego nie rozumiem.
+Bo len = 0 pomija potencjalne matche które istniały w dłuższym potencjalnym matchu.
+ale to dlaczego nie robimy po prostu len--?
 */
 
   function buildLPS(p) {
