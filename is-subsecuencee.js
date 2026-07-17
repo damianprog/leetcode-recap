@@ -16,6 +16,21 @@
 // binary search here
 // https://www.geeksforgeeks.org/javascript/binary-search-in-javascript/
 
+function binarySearch(arr, target) {
+  let lo = 0;
+  let hi = arr.length - 1;
+
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+
+    // if (arr[mid] > target)
+
+    // else
+  }
+
+  return -1; // nie ma
+}
+
 const makeChecker = function (t) {
   const tCharsMap = new Map();
 
@@ -30,11 +45,18 @@ const makeChecker = function (t) {
     if (s.length === 0) return true;
 
     let sIndex = 0;
+    let pos = -1;
 
-    for (const letter of t) {
-      if (letter === s[sIndex]) {
-        sIndex++;
-        if (sIndex === s.length) return true;
+    for (const char of s) {
+      if (tCharsMap.has(char)) {
+        const found = binarySearch(tCharsMap.get(char), pos);
+        if (found !== false) {
+          pos = found;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
       }
     }
 
