@@ -16,51 +16,47 @@
 // binary search here
 // https://www.geeksforgeeks.org/javascript/binary-search-in-javascript/
 
-function binarySearch(arr, target) {
+function upperBound(arr, x) {
   let lo = 0;
   let hi = arr.length - 1;
+  let ans = -1;
 
   while (lo <= hi) {
     const mid = Math.floor((lo + hi) / 2);
 
-    // if (arr[mid] > target)
-
-    // else
+    if (arr[mid] > x) {
+      ans = arr[mid];
+      hi = mid - 1;
+    } else {
+      lo = mid + 1;
+    }
   }
 
-  return -1; // nie ma
+  return ans;
 }
 
 const makeChecker = function (t) {
   const tCharsMap = new Map();
 
   for (let i = 0; i < t.length; i++) {
-    const charArray = tCharsMap.has(t[i]) ? tCharsMap.get(t[i]) : [];
-
-    charArray.push(i);
-    tCharsMap.set(t[i], charArray);
+    const list = tCharsMap.get(t[i]);
+    if (list) list.push(i);
+    else tCharsMap.set(t[i], [i]);
   }
 
   return function (s) {
-    if (s.length === 0) return true;
-
-    let sIndex = 0;
     let pos = -1;
 
     for (const char of s) {
-      if (tCharsMap.has(char)) {
-        const found = binarySearch(tCharsMap.get(char), pos);
-        if (found !== false) {
-          pos = found;
-        } else {
-          return false;
-        }
-      } else {
-        return false;
-      }
+      const indices = tCharsMap.get(char);
+      if (indices === undefined) return false;
+
+      const found = upperBound(indices, pos);
+      if (found === -1) return false;
+      pos = found;
     }
 
-    return false;
+    return true;
   };
 };
 
@@ -68,4 +64,4 @@ const t = "bahbgdc";
 const s = "abc";
 
 const isSubsecuence = makeChecker(t);
-isSubsecuence(s);
+console.log(isSubsecuence(s));
