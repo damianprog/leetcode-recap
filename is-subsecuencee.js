@@ -13,9 +13,6 @@
 //   return false;
 // };
 
-// binary search here
-// https://www.geeksforgeeks.org/javascript/binary-search-in-javascript/
-
 function upperBound(arr, x) {
   let lo = 0;
   let hi = arr.length - 1;
