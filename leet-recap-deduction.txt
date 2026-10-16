@@ -1,0 +1,92 @@
+Contains Duplicate II
+
+mamy array integerów oraz integer k
+zwrócić true jeśli istnieją dwa indeksy i oraz j w arrayu takie że,
+nums[i] === nums[j] czyli obie liczby pod tymi indeksami są równe
+oraz wartość bezwzględna z różnicy i - j <= k
+
+
+const nums = [1,2,3,1]
+const k = 3
+
+True
+
+nums[0] === nums[3]
+
+oraz
+
+Math.abs(0 - 3) <= k
+
+z tą wartoscią bezwzględną raczej chodzi po prostu o to aby te nums które są równe były odpowiednio blisko siebie, aby odstęp pomiędzy nimi nie przekraczał k
+
+const nums = [1,2,3,1,2,3] 
+const k = 2
+
+False
+
+Bo nie ma dwóch takich nums które by były równe i za razem były wystarczająco blisko siebie
+
+w nums może być kilka nums równych 
+ale mogą być rozstawione zbyt daleko od siebie
+
+to może mapa z pozycjami gdzie kluczem będzie num a wartością będzie array indeksów pod których ten num sie znajduje
+
+const nums = [1,2,3,1]
+const k = 3
+
+Map(3) { 1 => [ 0, 3 ], 2 => [ 1 ], 3 => [ 2 ] }
+
+mamy gwarancje że arraye indeksów będą uporządkowane w kolejności rosnącej
+
+w zasadzie to interesują nas dwa najmniejsze indeksy pod którymi znajduje się dany num
+
+jeśli 1 by występowało w tym array jeszcze pod większymi indeksami od 3 
+to nas to nie interesuje
+
+a że lecimy po indeksach w kolejności rosnącej to jeśli jakis array ma już dwa indeksy to znaczy że dany num jest już spalony bo kolejne indeksy będą tylko większe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
