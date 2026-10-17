@@ -45,6 +45,22 @@ to nas to nie interesuje
 
 a że lecimy po indeksach w kolejności rosnącej to jeśli jakis array ma już dwa indeksy to znaczy że dany num jest już spalony bo kolejne indeksy będą tylko większe
 
+czyli jeśli trafimy na array gdzie jest juz jeden element
+to należy porównać obecny indeks z tym co jest w tym array
+i jesli roznica tych indeksów nie przekracza k to zwracamy true
+a w przeciwnym razie dodajemy do tego array obecny indeks 
+i num traktujemy za zamknięty
+
+ale to po co nam w ogóle array?
+
+nie potrzebne jest jzywanie Math.abs bo zawsze będziemy odejmować mniejszy indeks od większego
+
+może numToLowestIndex i jeśli nie ma w mapie to znaczy 
+że jesteśmy na lowestIndex tego num
+
+czyli jesli nie ma w mapie to dodajemy
+a jesli jest to sprawdzamy roznice
+
 
 
 
