@@ -62,40 +62,19 @@ czyli jesli nie ma w mapie to dodajemy
 a jesli jest to sprawdzamy roznice
 
 
+w map należy trzymać maksymalnie k elementów bo więcej nie ma sensu
 
+1,3
+const nums = [1, 2, 3, 1];
+const k = 2;
 
+wystarczy set zamiast mapy, set ma nie przekraczać długości k
 
+const numsWindow = [1, 2]
 
+jeżeli set ma już długość k to przed dodaniem nowego elementu należy usunąć pierwszy
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+jaki to element chcemy usunąć? set.delete(nums[i - k])
 
 
 
