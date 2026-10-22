@@ -8,7 +8,7 @@ const summaryRanges = function (nums) {
   if (nums.length === 1) return [`${nums[0]}`];
 
   let start = nums[0];
-  let result = [];
+  const result = [];
   for (let i = 1; i <= nums.length; i++) {
     if (nums[i] - nums[i - 1] > 1 || i === nums.length) {
       if (start === nums[i - 1]) {

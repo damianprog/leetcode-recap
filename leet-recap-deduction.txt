@@ -82,6 +82,14 @@ jaki to element chcemy usunąć? set.delete(nums[i - k])
 
 
 
+Summary Ranges
+
+iterując się po posortowanym unikalnym array 
+należy zapisywać początki i końce ciągów
+
+może sprawdzać różnice pomiędzy obecnie iterowanym a poprzednim
+
+po zakończeniu iteracji trzeba albo dodać przedział albo dodać samą liczbę
 
 
 
