@@ -85,3 +85,33 @@ jaki to element chcemy usunąć? set.delete(nums[i - k])
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
